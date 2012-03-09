@@ -8,12 +8,14 @@ import javax.swing.ImageIcon;
 public class Character {
 
 	int x, y, dx;
-	Image tank;
+	Image tankleft1, tankright1;
 
 	public Character() {
-		ImageIcon i = new ImageIcon("D:/tank.png");
-		tank = i.getImage();
-		x = 10;
+		ImageIcon iright1 = new ImageIcon("D:/tank.png");
+		ImageIcon ileft1  = new ImageIcon("D:/tank11.png");
+		tankright1 = iright1.getImage();
+		tankleft1  = ileft1 .getImage();
+		x = 25;
 		y = 395;
 	}
 	
@@ -30,17 +32,24 @@ public class Character {
 	}
 	
 	public Image getImage() {
-		return tank;
+		
+		
+		if(dx == 1)
+			 return tankright1;
+		else if (dx == -1)
+			 return tankleft1;
+		else return tankright1;
 	}
 	
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		
 		if(key == KeyEvent.VK_LEFT)
-			dx = -1;
+				dx = -1;
+		
 		
 		if(key == KeyEvent.VK_RIGHT)
-			dx = 1;
+				dx = 1;
 		
 	}
 	
