@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 public class Character {
-
+	Board b;
 	int x, y, dx;
 	Image tankleft1, tankright1;
 
@@ -15,7 +15,7 @@ public class Character {
 		ImageIcon ileft1  = new ImageIcon("D:/tank11.png");
 		tankright1 = iright1.getImage();
 		tankleft1  = ileft1 .getImage();
-		x = 25;
+		x = 40;
 		y = 395;
 	}
 	
@@ -43,13 +43,15 @@ public class Character {
 	
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
-		
-		if(key == KeyEvent.VK_LEFT)
+		if(key == KeyEvent.VK_LEFT) {
+			if(x>40)
 				dx = -1;
+			if(x<=40)
+				dx = 0;
+		}
 		
-		
-		if(key == KeyEvent.VK_RIGHT)
-				dx = 1;
+		if(key == KeyEvent.VK_RIGHT) 
+			dx = 1;
 		
 	}
 	
@@ -58,7 +60,7 @@ public class Character {
 		
 		if(key == KeyEvent.VK_LEFT)
 			dx = 0;
-		
+				
 		if(key == KeyEvent.VK_RIGHT)
 			dx = 0;
 		

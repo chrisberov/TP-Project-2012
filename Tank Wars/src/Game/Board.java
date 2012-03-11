@@ -22,7 +22,7 @@ public class Board extends JPanel implements ActionListener {
 		setFocusable(true);
 		ImageIcon i = new ImageIcon("D:/background2.jpg");
 		img = i.getImage();
-		time = new Timer(5, this);
+		time = new Timer(10, this);
 		time.start();
 	}
 	
@@ -39,7 +39,7 @@ public class Board extends JPanel implements ActionListener {
 		g2d.drawImage(ch.getImage(), ch.getX(), ch.getY(), null);
 	}
 	
-	private class AL extends KeyAdapter {
+	class AL extends KeyAdapter {
 		public void keyReleased(KeyEvent e) {
 			ch.keyReleased(e);
 		}
@@ -47,5 +47,9 @@ public class Board extends JPanel implements ActionListener {
 		public void keyPressed(KeyEvent e) {
 			ch.keyPressed(e);
 		}
+	}
+	
+	public Timer getTime() {
+		return time;
 	}
 }
