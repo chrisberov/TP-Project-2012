@@ -44,10 +44,14 @@ public class Character {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		if(key == KeyEvent.VK_LEFT) {
-			if(x>40)
+			if(x>40) {
 				dx = -1;
-			if(x<=40)
+				
+			}
+			if(x<=40) {
 				dx = 0;
+				
+			}
 		}
 		
 		if(key == KeyEvent.VK_RIGHT) 

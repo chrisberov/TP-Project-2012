@@ -7,31 +7,51 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class MainClass {
-	static Image img;
 	
 	public static void main(String[] args) {
-		GameMenu();
 		
-		//GameWindow();
+		GameMenu();
 		
 	}
 	
 	public static void GameMenu() {
+		
 		ImagePanel panel = new ImagePanel(new ImageIcon("D:/bg.png").getImage());
-	    JFrame frame = new JFrame();    
+	    final JFrame frame = new JFrame();  
+	    
+	    JButton play = new JButton();
+	    Icon img2 = new ImageIcon("D:/play2.gif");
+	    play.setBounds(440, 280, 139, 21);
+	    play.setIcon(img2);
+	    play.setVisible(true);
+	    play.setBorder(null);
+	    
+	    frame.add(play);
 	    frame.setSize(1030, 615);
 	    frame.getContentPane().add(panel);
 	    frame.setResizable(false);
 	    frame.setVisible(true);
-	    
+
+	    play.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e){
+	    		frame.dispose();
+	    		GameWindow();
+	    	}
+	    });
+	        
 	}
+	
+    
 	
 	public static void GameWindow() {
 		JFrame frame = new JFrame("Tank Wars");
@@ -75,5 +95,6 @@ public class MainClass {
 			    g.drawImage(imgcredits, 410, 440, null);
 			    g.drawImage(imgexit,    450, 520, null);
 		  }
+
 	}
 
